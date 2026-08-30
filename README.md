@@ -52,6 +52,13 @@ For anything past your own machine, add one first — everything reads it from
 echo "VLLM_API_KEY=$(openssl rand -hex 24)" > .env
 ```
 
+Then send it as a bearer token (`grep`, not `cut` on the whole file — `.env`
+usually has more lines than the key):
+
+```bash
+curl -H "Authorization: Bearer $(grep VLLM_API_KEY .env | cut -d= -f2)" http://127.0.0.1:18020/v1/models
+```
+
 No compose, no clone — plain Docker runs the same image with one command and
 prepares the model itself on the first boot (into a named volume, so it
 survives container replacement):

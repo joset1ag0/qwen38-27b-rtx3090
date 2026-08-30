@@ -45,7 +45,8 @@ difference is gotcha 16 below.
 - Every start-script knob works from `.env`, which is passed straight into the
   container: `CTX=long`, `KV=kvarn`, `SPEC=dflash2`, `PREFIX_CACHE=1`, `MAX_LEN=`,
   `MAX_SEQS=`, `SPEC_ATTN=0`, `EXTRA_ARGS=...` (`prepare` also fetches the DFlash2 drafter;
-  `DFLASH2=0` skips it). `PORT` (default 18020) and `MODELS_DIR` (default `./models`,
+  `DFLASH2=0` skips it). `BIND` (default `127.0.0.1`, host-only; `0.0.0.0` to serve
+  the LAN), `PORT` (default 18020) and `MODELS_DIR` (default `./models`,
   so a venv install and the container can share one download) are read by
   compose itself.
 - `docker compose run --rm single verify` runs `verify.sh` inside the container
@@ -61,6 +62,15 @@ difference is gotcha 16 below.
 - On WSL2 the batch default may fail vLLM's free-memory gate; put
   `GPU_UTIL=0.93` in `.env` (see the WSL2 notes below, an independent
   containerized reproduction that predates this compose file).
+- A desktop on the same card (compositor + browser + editor, ~1.3 GB) fails
+  the same gate on bare metal: size `GPU_UTIL` to what is actually free
+  (`nvidia-smi`) and lower `MAX_LEN` to what the pool holds — vLLM prints the
+  estimated maximum when it refuses (0.88 → 131,856 tokens; 0.80 → 68,620,
+  `MAX_LEN=65536`). Spilling weights to host RAM instead
+  (`EXTRA_ARGS=--cpu-offload-gb 2`, vLLM's UVA offloader) does boot and gives
+  the 150k pool back, but every decode step re-reads those 2 GiB over PCIe:
+  measured 7.5 tok/s against 48 tok/s single-stream in batch mode. Not a
+  substitute for VRAM; use it only when context matters more than speed.
 
 ### Plain docker (no compose)
 
