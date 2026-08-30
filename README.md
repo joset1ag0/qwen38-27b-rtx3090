@@ -78,6 +78,11 @@ is `high`, which this endpoint rejects — run `/effort xhigh` in the session
 (or set `"modelSettings": {"qwen3.8-27b": {"effortLevel": "xhigh"}}` in
 `~/.claude/settings.json`).
 
+Context sizing: Claude Code's system prompt alone is ~33k tokens and it asks
+for 32k of output, so `MAX_LEN` below ~66k fails on the very first message
+("maximum context length is N tokens..."). Serve it 128k+ (`MAX_LEN=131072`;
+the batch default 150k also works).
+
 No compose, no clone — plain Docker runs the same image with one command and
 prepares the model itself on the first boot (into a named volume, so it
 survives container replacement):
