@@ -72,6 +72,12 @@ ANTHROPIC_SMALL_FAST_MODEL=qwen3.8-27b \
 claude
 ```
 
+If every request fails with `500 Unexpected reasoning effort high. Supported
+types are xhigh (default), medium, and low`, your Claude Code effort setting
+is `high`, which this endpoint rejects — run `/effort xhigh` in the session
+(or set `"modelSettings": {"qwen3.8-27b": {"effortLevel": "xhigh"}}` in
+`~/.claude/settings.json`).
+
 No compose, no clone — plain Docker runs the same image with one command and
 prepares the model itself on the first boot (into a named volume, so it
 survives container replacement):
