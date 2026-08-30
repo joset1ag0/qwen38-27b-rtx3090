@@ -59,6 +59,19 @@ usually has more lines than the key):
 curl -H "Authorization: Bearer $(grep VLLM_API_KEY .env | cut -d= -f2)" http://127.0.0.1:18020/v1/models
 ```
 
+The server also speaks the Anthropic Messages API (`/v1/messages`), so
+[Claude Code](https://code.claude.com/docs) can run against it directly —
+start it with the endpoint and key in the environment (from the repo
+directory):
+
+```bash
+ANTHROPIC_BASE_URL=http://127.0.0.1:18020 \
+ANTHROPIC_AUTH_TOKEN=$(grep VLLM_API_KEY .env | cut -d= -f2) \
+ANTHROPIC_MODEL=qwen3.8-27b \
+ANTHROPIC_SMALL_FAST_MODEL=qwen3.8-27b \
+claude
+```
+
 No compose, no clone — plain Docker runs the same image with one command and
 prepares the model itself on the first boot (into a named volume, so it
 survives container replacement):
