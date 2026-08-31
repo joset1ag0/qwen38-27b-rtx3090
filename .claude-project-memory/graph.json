@@ -1,0 +1,469 @@
+{
+  "version": 2,
+  "rebuilt_at": null,
+  "updated_at": "2026-08-31T05:12:15.254Z",
+  "nodes": {
+    "command:docker compose ps;": {
+      "kind": "command",
+      "label": "docker compose ps; echo",
+      "count": 1,
+      "last_seen": "2026-08-30T17:32:55.772Z"
+    },
+    "command:echo \"--- listen\";": {
+      "kind": "command",
+      "label": "echo \"--- listen\"; ss",
+      "count": 1,
+      "last_seen": "2026-08-30T17:33:39.378Z"
+    },
+    "command:sed -n 44,52p": {
+      "kind": "command",
+      "label": "sed -n 44,52p docs/docker.md;",
+      "count": 1,
+      "last_seen": "2026-08-30T17:35:25.176Z"
+    },
+    "command:set -e cd": {
+      "kind": "command",
+      "label": "set -e\ncd /home/tiago/dev_pessoal/qwen38-27b-rtx3090\n# compose:",
+      "count": 1,
+      "last_seen": "2026-08-30T17:35:37.627Z"
+    },
+    "command:docker compose --profile": {
+      "kind": "command",
+      "label": "docker compose --profile batch",
+      "count": 2,
+      "last_seen": "2026-08-30T21:20:32.298Z"
+    },
+    "command:docker compose ps": {
+      "kind": "command",
+      "label": "docker compose ps --format",
+      "count": 1,
+      "last_seen": "2026-08-30T17:43:29.075Z"
+    },
+    "command:docker compose logs": {
+      "kind": "command",
+      "label": "docker compose logs batch",
+      "count": 2,
+      "last_seen": "2026-08-30T17:43:45.568Z"
+    },
+    "command:grep -n 'GPU_UTIL'": {
+      "kind": "command",
+      "label": "grep -n 'GPU_UTIL' start*.sh",
+      "count": 1,
+      "last_seen": "2026-08-30T17:43:54.120Z"
+    },
+    "command:sed -n 58,66p": {
+      "kind": "command",
+      "label": "sed -n 58,66p docs/docker.md;",
+      "count": 1,
+      "last_seen": "2026-08-30T17:43:57.714Z"
+    },
+    "command:echo \"GPU_UTIL=0.88\" >>": {
+      "kind": "command",
+      "label": "echo \"GPU_UTIL=0.88\" >> .env",
+      "count": 1,
+      "last_seen": "2026-08-30T17:44:52.373Z"
+    },
+    "command:for i in": {
+      "kind": "command",
+      "label": "for i in $(seq",
+      "count": 3,
+      "last_seen": "2026-08-30T18:48:05.335Z"
+    },
+    "command:grep -n -i": {
+      "kind": "command",
+      "label": "grep -n -i 'kvarn\\|CTX=huge\\|cpu.offload\\|swap.space\\|host",
+      "count": 1,
+      "last_seen": "2026-08-30T17:49:42.476Z"
+    },
+    "command:grep -rn -i": {
+      "kind": "command",
+      "label": "grep -rn -i 'offload'",
+      "count": 1,
+      "last_seen": "2026-08-30T17:49:52.964Z"
+    },
+    "command:echo \"=== erro": {
+      "kind": "command",
+      "label": "echo \"=== erro completo\";",
+      "count": 1,
+      "last_seen": "2026-08-30T17:50:06.243Z"
+    },
+    "command:echo \"=== knob": {
+      "kind": "command",
+      "label": "echo \"=== knob de",
+      "count": 1,
+      "last_seen": "2026-08-30T17:50:25.049Z"
+    },
+    "command:echo \"=== GPUs/iGPU\";": {
+      "kind": "command",
+      "label": "echo \"=== GPUs/iGPU\"; lspci",
+      "count": 1,
+      "last_seen": "2026-08-30T17:55:10.834Z"
+    },
+    "command:echo \"=== gotcha": {
+      "kind": "command",
+      "label": "echo \"=== gotcha UVA",
+      "count": 1,
+      "last_seen": "2026-08-30T17:55:49.563Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090 sed": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090\nsed -i '/^MAX_LEN=/d'",
+      "count": 13,
+      "last_seen": "2026-08-31T03:17:56.808Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090 python3": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090\npython3 - <<'EOF'\np='docs/docker.md';",
+      "count": 10,
+      "last_seen": "2026-08-31T04:24:56.357Z"
+    },
+    "file:/home/tiago/.claude/projects/-home-tiago-dev-pessoal-qwen38-27b-rtx3090/memory/host-setup-and-env.md": {
+      "kind": "file",
+      "label": "/home/tiago/.claude/projects/-home-tiago-dev-pessoal-qwen38-27b-rtx3090/memory/host-setup-and-env.md",
+      "count": 1,
+      "last_seen": "2026-08-30T18:06:54.381Z"
+    },
+    "command:M=/home/tiago/.claude/projects/-home-tiago-dev-pessoal-qwen38-27b-rtx3090/memory/MEMORY.md; touch \"$M\";": {
+      "kind": "command",
+      "label": "M=/home/tiago/.claude/projects/-home-tiago-dev-pessoal-qwen38-27b-rtx3090/memory/MEMORY.md; touch \"$M\"; grep",
+      "count": 1,
+      "last_seen": "2026-08-30T18:07:00.838Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090; git": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090; git remote",
+      "count": 1,
+      "last_seen": "2026-08-30T18:46:44.578Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090; sed": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090; sed -n",
+      "count": 2,
+      "last_seen": "2026-08-31T00:11:51.498Z"
+    },
+    "command:git checkout -b": {
+      "kind": "command",
+      "label": "git checkout -b host-setup-docs",
+      "count": 1,
+      "last_seen": "2026-08-30T18:47:33.967Z"
+    },
+    "command:M=/home/tiago/.claude/projects/-home-tiago-dev-pessoal-qwen38-27b-rtx3090/memory/host-setup-and-env.md python3 -": {
+      "kind": "command",
+      "label": "M=/home/tiago/.claude/projects/-home-tiago-dev-pessoal-qwen38-27b-rtx3090/memory/host-setup-and-env.md\npython3 - \"$M\" <<'EOF'\nimport",
+      "count": 5,
+      "last_seen": "2026-08-31T00:38:44.372Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090; KEY=$(grep": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090; KEY=$(grep VLLM_API_KEY",
+      "count": 4,
+      "last_seen": "2026-08-31T05:12:15.252Z"
+    },
+    "agent:claude-code-guide": {
+      "kind": "agent",
+      "label": "claude-code-guide",
+      "count": 1,
+      "last_seen": "2026-08-30T19:10:32.777Z"
+    },
+    "command:grep -A 20": {
+      "kind": "command",
+      "label": "grep -A 20 \"ANTHROPIC_BASE_URL\\|ANTHROPIC_AUTH_TOKEN\\|ANTHROPIC_MODEL\"",
+      "count": 1,
+      "last_seen": "2026-08-30T19:11:45.300Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/bankin/.claude/agents; for": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/bankin/.claude/agents; for f",
+      "count": 1,
+      "last_seen": "2026-08-30T19:19:10.097Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/bankin echo": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/bankin\necho \"=== hooks",
+      "count": 1,
+      "last_seen": "2026-08-30T19:19:41.764Z"
+    },
+    "command:grep -n 'effort'": {
+      "kind": "command",
+      "label": "grep -n 'effort' ~/.claude/settings.json",
+      "count": 1,
+      "last_seen": "2026-08-30T19:25:27.350Z"
+    },
+    "command:sed -n 105,120p": {
+      "kind": "command",
+      "label": "sed -n 105,120p ~/.claude/settings.json",
+      "count": 1,
+      "last_seen": "2026-08-30T19:25:34.154Z"
+    },
+    "file:/home/tiago/.claude/settings.json": {
+      "kind": "file",
+      "label": "/home/tiago/.claude/settings.json",
+      "count": 1,
+      "last_seen": "2026-08-30T19:25:54.851Z"
+    },
+    "command:jq -e '.modelSettings'": {
+      "kind": "command",
+      "label": "jq -e '.modelSettings' ~/.claude/settings.json",
+      "count": 1,
+      "last_seen": "2026-08-30T19:26:02.015Z"
+    },
+    "command:M=/home/tiago/.claude/projects/-home-tiago-dev-pessoal-qwen38-27b-rtx3090/memory/host-setup-and-env.md sed -i": {
+      "kind": "command",
+      "label": "M=/home/tiago/.claude/projects/-home-tiago-dev-pessoal-qwen38-27b-rtx3090/memory/host-setup-and-env.md\nsed -i 's|`grep VLLM_API_KEY",
+      "count": 1,
+      "last_seen": "2026-08-30T19:26:39.577Z"
+    },
+    "command:nvidia-smi --query-gpu=memory.used,memory.total,utilization.gpu,temperature.gpu,power.draw,power.limit --format=csv;": {
+      "kind": "command",
+      "label": "nvidia-smi --query-gpu=memory.used,memory.total,utilization.gpu,temperature.gpu,power.draw,power.limit --format=csv; docker",
+      "count": 1,
+      "last_seen": "2026-08-30T19:47:50.880Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090 echo": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090\necho 'MAX_LEN=204800' >>",
+      "count": 4,
+      "last_seen": "2026-08-31T03:11:24.875Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090; docker": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090; docker compose",
+      "count": 1,
+      "last_seen": "2026-08-31T00:05:41.217Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090 for": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090\nfor i in",
+      "count": 2,
+      "last_seen": "2026-08-31T05:10:38.294Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090 docker": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090\ndocker inspect qwen38-27b-rtx3090-single-1",
+      "count": 4,
+      "last_seen": "2026-08-31T05:06:12.424Z"
+    },
+    "command:nvidia-smi --query-compute-apps=process_name,used_memory --format=csv,noheader": {
+      "kind": "command",
+      "label": "nvidia-smi --query-compute-apps=process_name,used_memory --format=csv,noheader 2>/dev/null",
+      "count": 1,
+      "last_seen": "2026-08-31T00:11:41.523Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090 grep": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090\ngrep -rn -i",
+      "count": 1,
+      "last_seen": "2026-08-31T00:40:58.007Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090 printf": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090\nprintf 'EXTRA_ARGS=--enable-sleep-mode\\nVLLM_SERVER_DEV_MODE=1\\n' >>",
+      "count": 1,
+      "last_seen": "2026-08-31T00:46:57.264Z"
+    },
+    "command:M=/home/tiago/.claude/projects/-home-tiago-dev-pessoal-qwen38-27b-rtx3090/memory/host-setup-and-env.md cat >>": {
+      "kind": "command",
+      "label": "M=/home/tiago/.claude/projects/-home-tiago-dev-pessoal-qwen38-27b-rtx3090/memory/host-setup-and-env.md\ncat >> \"$M\" <<'EOF'\n\nSleep",
+      "count": 1,
+      "last_seen": "2026-08-31T00:53:09.150Z"
+    },
+    "command:curl -s --unix-socket": {
+      "kind": "command",
+      "label": "curl -s --unix-socket /var/run/docker.sock",
+      "count": 1,
+      "last_seen": "2026-08-31T00:54:53.509Z"
+    },
+    "command:for repo in": {
+      "kind": "command",
+      "label": "for repo in \"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF\"",
+      "count": 1,
+      "last_seen": "2026-08-31T02:56:32.118Z"
+    },
+    "command:mkdir -p models/gguf": {
+      "kind": "command",
+      "label": "mkdir -p models/gguf &&",
+      "count": 1,
+      "last_seen": "2026-08-31T02:57:24.978Z"
+    },
+    "command:docker pull ghcr.io/ggml-org/llama.cpp:server-cuda": {
+      "kind": "command",
+      "label": "docker pull ghcr.io/ggml-org/llama.cpp:server-cuda 2>&1",
+      "count": 1,
+      "last_seen": "2026-08-31T02:57:27.223Z"
+    },
+    "command:tail -3 /tmp/claude-1000/-home-tiago-dev-pessoal-qwen38-27b-rtx3090/3343b7aa-6bc1-4368-9ab9-0a9f5cadf7db/tasks/bvsbz2pqm.output;": {
+      "kind": "command",
+      "label": "tail -3 /tmp/claude-1000/-home-tiago-dev-pessoal-qwen38-27b-rtx3090/3343b7aa-6bc1-4368-9ab9-0a9f5cadf7db/tasks/bvsbz2pqm.output; pwd;",
+      "count": 1,
+      "last_seen": "2026-08-31T02:57:32.963Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090 ls": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090\nls -ld models;",
+      "count": 1,
+      "last_seen": "2026-08-31T02:57:48.621Z"
+    },
+    "command:curl -sL -C": {
+      "kind": "command",
+      "label": "curl -sL -C -",
+      "count": 1,
+      "last_seen": "2026-08-31T02:58:00.716Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090 cat": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090\ncat > Makefile",
+      "count": 1,
+      "last_seen": "2026-08-31T02:58:38.013Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090 rm": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090\nrm -f models/gguf/*.part\ndocker",
+      "count": 1,
+      "last_seen": "2026-08-31T02:59:41.394Z"
+    },
+    "command:until [ -f": {
+      "kind": "command",
+      "label": "until [ -f /home/tiago/dev_pessoal/qwen38-27b-rtx3090/models/gguf/Kwaipilot_KAT-Coder-V2.5-Dev-IQ4_XS.gguf",
+      "count": 1,
+      "last_seen": "2026-08-31T03:00:56.204Z"
+    },
+    "command:C=$(docker ps -q": {
+      "kind": "command",
+      "label": "C=$(docker ps -q --filter",
+      "count": 1,
+      "last_seen": "2026-08-31T03:01:48.293Z"
+    },
+    "command:timeout 15 curl": {
+      "kind": "command",
+      "label": "timeout 15 curl -sL",
+      "count": 1,
+      "last_seen": "2026-08-31T03:02:42.566Z"
+    },
+    "command:curl -sL -r": {
+      "kind": "command",
+      "label": "curl -sL -r 0-104857599",
+      "count": 1,
+      "last_seen": "2026-08-31T03:08:11.250Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090 C=$(docker": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090\nC=$(docker ps -q",
+      "count": 2,
+      "last_seen": "2026-08-31T03:12:10.438Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090 curl": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090\ncurl -sL --max-time",
+      "count": 1,
+      "last_seen": "2026-08-31T03:12:46.140Z"
+    },
+    "command:make models/gguf/Kwaipilot_KAT-Coder-V2.5-Dev-IQ4_XS.gguf 2>&1": {
+      "kind": "command",
+      "label": "make models/gguf/Kwaipilot_KAT-Coder-V2.5-Dev-IQ4_XS.gguf 2>&1 |",
+      "count": 2,
+      "last_seen": "2026-08-31T04:25:43.479Z"
+    },
+    "command:docker run --rm": {
+      "kind": "command",
+      "label": "docker run --rm --entrypoint",
+      "count": 4,
+      "last_seen": "2026-08-31T03:13:50.068Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090; ls": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090; ls -la",
+      "count": 4,
+      "last_seen": "2026-08-31T05:05:42.545Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090; tail": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090; tail -3",
+      "count": 3,
+      "last_seen": "2026-08-31T04:23:03.330Z"
+    },
+    "command:make models/gguf/Kwaipilot_KAT-Coder-V2.5-Dev-IQ4_XS.gguf; echo": {
+      "kind": "command",
+      "label": "make models/gguf/Kwaipilot_KAT-Coder-V2.5-Dev-IQ4_XS.gguf; echo \"EXIT=$?\";",
+      "count": 2,
+      "last_seen": "2026-08-31T04:01:43.767Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090; df": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090; df -h",
+      "count": 1,
+      "last_seen": "2026-08-31T04:01:19.490Z"
+    },
+    "command:for p in": {
+      "kind": "command",
+      "label": "for p in $(pgrep",
+      "count": 1,
+      "last_seen": "2026-08-31T04:23:57.950Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090 pkill": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090\npkill -f '^curl",
+      "count": 1,
+      "last_seen": "2026-08-31T04:24:34.140Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090 make": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090\nmake -n models/gguf/Kwaipilot_KAT-Coder-V2.5-Dev-IQ4_XS.gguf",
+      "count": 1,
+      "last_seen": "2026-08-31T04:25:20.710Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090 S=/tmp/claude-1000/-home-tiago-dev-pessoal-qwen38-27b-rtx3090/3343b7aa-6bc1-4368-9ab9-0a9f5cadf7db/scratchpad": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090\nS=/tmp/claude-1000/-home-tiago-dev-pessoal-qwen38-27b-rtx3090/3343b7aa-6bc1-4368-9ab9-0a9f5cadf7db/scratchpad\necho \"log A:",
+      "count": 1,
+      "last_seen": "2026-08-31T04:25:33.493Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090; make": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090; make 2>&1",
+      "count": 2,
+      "last_seen": "2026-08-31T05:06:26.264Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090 until": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090\nuntil docker compose",
+      "count": 1,
+      "last_seen": "2026-08-31T05:10:46.999Z"
+    },
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090; sleep": {
+      "kind": "command",
+      "label": "cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090; sleep 45;",
+      "count": 1,
+      "last_seen": "2026-08-31T05:11:40.063Z"
+    }
+  },
+  "edges": {
+    "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090 python3→file:/home/tiago/.claude/projects/-home-tiago-dev-pessoal-qwen38-27b-rtx3090/memory/host-setup-and-env.md→then_edited": {
+      "from": "command:cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090 python3",
+      "to": "file:/home/tiago/.claude/projects/-home-tiago-dev-pessoal-qwen38-27b-rtx3090/memory/host-setup-and-env.md",
+      "rel": "then_edited",
+      "count": 1,
+      "last_seen": "2026-08-30T18:06:54.381Z"
+    },
+    "file:/home/tiago/.claude/projects/-home-tiago-dev-pessoal-qwen38-27b-rtx3090/memory/host-setup-and-env.md→command:M=/home/tiago/.claude/projects/-home-tiago-dev-pessoal-qwen38-27b-rtx3090/memory/MEMORY.md; touch \"$M\";→followed_by": {
+      "from": "file:/home/tiago/.claude/projects/-home-tiago-dev-pessoal-qwen38-27b-rtx3090/memory/host-setup-and-env.md",
+      "to": "command:M=/home/tiago/.claude/projects/-home-tiago-dev-pessoal-qwen38-27b-rtx3090/memory/MEMORY.md; touch \"$M\";",
+      "rel": "followed_by",
+      "count": 1,
+      "last_seen": "2026-08-30T18:07:00.838Z"
+    },
+    "command:sed -n 105,120p→file:/home/tiago/.claude/settings.json→then_edited": {
+      "from": "command:sed -n 105,120p",
+      "to": "file:/home/tiago/.claude/settings.json",
+      "rel": "then_edited",
+      "count": 1,
+      "last_seen": "2026-08-30T19:25:54.851Z"
+    },
+    "file:/home/tiago/.claude/settings.json→command:jq -e '.modelSettings'→followed_by": {
+      "from": "file:/home/tiago/.claude/settings.json",
+      "to": "command:jq -e '.modelSettings'",
+      "rel": "followed_by",
+      "count": 1,
+      "last_seen": "2026-08-30T19:26:02.015Z"
+    }
+  }
+}

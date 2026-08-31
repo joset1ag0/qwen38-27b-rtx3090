@@ -83,6 +83,30 @@ for 32k of output, so `MAX_LEN` below ~66k fails on the very first message
 ("maximum context length is N tokens..."). Serve it 128k+ (`MAX_LEN=131072`;
 the batch default 150k also works).
 
+### KAT-Coder-V2.5-Dev (alternative model, llama.cpp)
+
+The compose file also carries a `kat` profile serving
+[Kwaipilot/KAT-Coder-V2.5-Dev](https://huggingface.co/Kwaipilot/KAT-Coder-V2.5-Dev)
+(MoE, 35B total / 3B active, base Qwen3.6-35B-A3B) as the IQ4_XS GGUF
+(18.81 GB, [bartowski](https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF))
+on llama.cpp — vLLM does not load IQ quants. It is the default `make` target:
+
+```bash
+make            # downloads the GGUF once (18.81 GB), stops qwen, serves KAT-Coder
+make single     # back to Qwen3.8-27B low-latency
+make batch      # back to Qwen3.8-27B throughput
+make down       # stop everything
+```
+
+Same port, `BIND` and API-key conventions as the Qwen services (the key is
+sent as `LLAMA_API_KEY`). OpenAI-compatible API only — llama.cpp has no
+Anthropic `/v1/messages`, so Claude Code does not run against this profile.
+Knobs in `.env`: `KAT_CTX` (default 16384) and `KAT_CPU_MOE` (expert layers
+kept on CPU, default 0 — raise it if the card also drives a desktop and the
+boot OOMs; the experts are only 3B active, so the speed cost is modest).
+One GPU: `kat`, `single` and `batch` are exclusive — the make targets stop
+the others first.
+
 No compose, no clone — plain Docker runs the same image with one command and
 prepares the model itself on the first boot (into a named volume, so it
 survives container replacement):
