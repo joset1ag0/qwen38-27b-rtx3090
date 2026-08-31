@@ -98,14 +98,45 @@ make batch      # back to Qwen3.8-27B throughput
 make down       # stop everything
 ```
 
+Measured here on the RTX 3090 (default 16k context, desktop also on the card),
+against the Qwen numbers above for scale:
+
+| | KAT-Coder IQ4_XS | Qwen3.8-27B (`single`) |
+|---|---|---|
+| Decode | **163 tok/s** | 46 tok/s |
+| Prefill | 374 tok/s | 645 tok/s |
+| VRAM | 20.7 GiB | 23.7 GiB |
+| Context | 16k (`KAT_CTX`) | 143k |
+
+It decodes ~3.5x faster because only 3B of the 35B parameters are active per
+token; it reads prompts slower, and the shipped context is an order of
+magnitude shorter. Raise `KAT_CTX` (there is ~3.8 GiB of headroom) when a task
+needs it.
+
 Same port, `BIND` and API-key conventions as the Qwen services (the key is
-sent as `LLAMA_API_KEY`). OpenAI-compatible API only — llama.cpp has no
-Anthropic `/v1/messages`, so Claude Code does not run against this profile.
-Knobs in `.env`: `KAT_CTX` (default 16384) and `KAT_CPU_MOE` (expert layers
-kept on CPU, default 0 — raise it if the card also drives a desktop and the
-boot OOMs; the experts are only 3B active, so the speed cost is modest).
-One GPU: `kat`, `single` and `batch` are exclusive — the make targets stop
-the others first.
+sent as `LLAMA_API_KEY`); the model name in requests is `kat-coder-v2.5`:
+
+```bash
+curl -H "Authorization: Bearer $(grep VLLM_API_KEY .env | cut -d= -f2)" \
+  -H 'Content-Type: application/json' http://127.0.0.1:18020/v1/chat/completions \
+  -d '{"model":"kat-coder-v2.5","messages":[{"role":"user","content":"oi"}]}'
+```
+
+**OpenAI-compatible API only** — llama.cpp has no Anthropic `/v1/messages`, so
+Claude Code does not run against this profile; use `make single` for that.
+Other knobs in `.env`: `KAT_CPU_MOE` (expert layers kept on CPU, default 0 —
+raise it if the card also drives a desktop and the boot OOMs; the experts are
+only 3B active, so the speed cost is modest). One GPU: `kat`, `single` and
+`batch` are exclusive — the make targets stop the others first.
+
+The `make` download target is hardened against three failures this repo's
+author hit on the 18.81 GB transfer: the HF CDN resets HTTP/2 streams on
+multi-GB files (`--http1.1`), a resumed request that follows its redirect can
+come back as a full body that `curl` appends to the partial (the byte count is
+verified against `Content-Length`, and a mismatch restarts from zero), and two
+concurrent `make` runs would race into the same `.part` (`flock`). A corrupt
+GGUF fails late and confusingly — the server crash-loops on load — so the
+check is worth its lines.
 
 No compose, no clone — plain Docker runs the same image with one command and
 prepares the model itself on the first boot (into a named volume, so it
