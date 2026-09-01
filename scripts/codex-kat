@@ -1,12 +1,21 @@
 #!/bin/sh
 # Codex CLI no KAT-Coder local, de qualquer diretório: exporta a chave do .env
-# deste repo e usa o profile kat (~/.codex/kat.config.toml). O servidor sobe
-# com `make` no repo; sem ele o codex mostra um erro enganoso de "high demand",
-# então o wrapper checa a porta antes.
+# deste repo e usa o profile kat (~/.codex/kat.config.toml). Se o servidor não
+# estiver de pé, sobe com `make` (que derruba os profiles do Qwen antes — um
+# GPU só) e espera o modelo carregar; sem essa checagem o codex mostra um erro
+# enganoso de "high demand".
 REPO="$(realpath "$(dirname "$(realpath "$0")")/..")"
 PORT="${PORT:-18020}"
-if ! curl -s -m 2 -o /dev/null "http://127.0.0.1:$PORT/health"; then
-    echo "servidor nao esta de pe em 127.0.0.1:$PORT — rode \`make\` em $REPO" >&2
-    exit 1
+up() { curl -s -m 2 -o /dev/null "http://127.0.0.1:$PORT/health"; }
+if ! up; then
+    echo "servidor nao esta de pe — subindo (make -C $REPO)..." >&2
+    make -C "$REPO" >&2 || exit 1
+    i=0
+    until up; do
+        i=$((i+1))
+        [ $i -gt 90 ] && { echo "servidor nao respondeu em 180s — veja \`make logs\` em $REPO" >&2; exit 1; }
+        sleep 2
+    done
+    echo "servidor pronto" >&2
 fi
 KAT_API_KEY="$(grep '^VLLM_API_KEY=' "$REPO/.env" | cut -d= -f2-)" exec codex --profile kat "$@"

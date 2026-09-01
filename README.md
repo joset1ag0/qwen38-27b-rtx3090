@@ -169,8 +169,9 @@ pieces make it work:
 
 To use it from any directory in any project, symlink
 [`scripts/codex-kat`](scripts/codex-kat) into your `PATH` — it resolves the
-key from this repo's `.env`, checks the server is up (codex's own failure
-mode is a misleading "high demand" error) and runs `codex --profile kat`:
+key from this repo's `.env`, starts the server via `make` if it is not up
+(codex's own failure mode is a misleading "high demand" error), waits for the
+model to load and runs `codex --profile kat`:
 
 ```bash
 ln -s "$(pwd)/scripts/codex-kat" ~/.local/bin/codex-kat

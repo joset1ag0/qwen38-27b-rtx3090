@@ -19,7 +19,7 @@ ALL_PROFILES := --profile kat --profile single --profile batch
 
 kat: $(KAT_GGUF)
 	$(COMPOSE) --profile single --profile batch down
-	$(COMPOSE) --profile kat up -d kat
+	$(COMPOSE) --profile kat up -d --force-recreate kat
 	@echo "KAT-Coder up on port $${PORT:-18020} (llama.cpp, OpenAI-compatible API)"
 
 # 18.81 GB over a link that drops mid-transfer. Two hazards, both hit here:
@@ -54,13 +54,16 @@ $(KAT_GGUF).locked:
 	done; \
 	echo "[make] giving up after 5 attempts"; exit 1
 
+# --force-recreate on the serve targets: the cross-profile `down` above removes
+# the project network, and a plain `up` would restart the existing stopped
+# container still wired to the old network id ("network ... not found").
 single:
 	$(COMPOSE) --profile kat --profile batch down
-	$(COMPOSE) --profile single up -d single
+	$(COMPOSE) --profile single up -d --force-recreate single
 
 batch:
 	$(COMPOSE) --profile kat --profile single down
-	$(COMPOSE) --profile batch up -d batch
+	$(COMPOSE) --profile batch up -d --force-recreate batch
 
 down:
 	$(COMPOSE) $(ALL_PROFILES) down
