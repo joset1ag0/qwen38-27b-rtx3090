@@ -1,0 +1,106 @@
+#!/usr/bin/env python3
+# Wake proxy do kat: escuta em 127.0.0.1:18021 e repassa bytes crus (TCP) para
+# o llama.cpp em 127.0.0.1:18020. Se o servidor estiver morto quando chega uma
+# requisição, roda `make kat` (que derruba os profiles do Qwen — um GPU só),
+# espera o /health e só então repassa — o cliente fica pendurado na conexão em
+# vez de receber connection refused. O codex aponta para a porta do proxy
+# (base_url em ~/.codex/kat.config.toml), então qualquer mensagem sobe o
+# servidor sozinha. Instalado como serviço de usuário via `make wakeproxy`.
+import asyncio
+import os
+import sys
+import time
+import urllib.request
+
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PORT = int(os.environ.get("PORT", "18020"))
+WAKE_PORT = int(os.environ.get("WAKE_PORT", "18021"))
+BOOT_TIMEOUT = 180  # mesmo teto do scripts/codex-kat
+
+start_lock = None
+
+
+def log(msg):
+    print(time.strftime("%H:%M:%S"), msg, file=sys.stderr, flush=True)
+
+
+def healthy():
+    try:
+        with urllib.request.urlopen(f"http://127.0.0.1:{PORT}/health", timeout=2) as r:
+            return r.status == 200
+    except OSError:
+        return False
+
+
+async def ensure_up():
+    if await asyncio.to_thread(healthy):
+        return True
+    # Um único `make kat` por vez; conexões que chegarem durante o boot esperam
+    # aqui e saem juntas quando o /health responder.
+    async with start_lock:
+        if await asyncio.to_thread(healthy):
+            return True
+        log(f"servidor fora do ar — subindo (make -C {REPO} kat)...")
+        proc = await asyncio.create_subprocess_exec("make", "-C", REPO, "kat")
+        await proc.wait()
+        if proc.returncode != 0:
+            log("make kat falhou")
+            return False
+        deadline = time.monotonic() + BOOT_TIMEOUT
+        while time.monotonic() < deadline:
+            if await asyncio.to_thread(healthy):
+                log("servidor pronto")
+                return True
+            await asyncio.sleep(2)
+        log(f"servidor nao respondeu em {BOOT_TIMEOUT}s — veja `make logs`")
+        return False
+
+
+async def pipe(reader, writer):
+    try:
+        while data := await reader.read(65536):
+            writer.write(data)
+            await writer.drain()
+        if writer.can_write_eof():
+            writer.write_eof()
+    except (ConnectionResetError, BrokenPipeError):
+        pass
+
+
+async def handle(client_r, client_w):
+    backend_w = None
+    try:
+        # Só acorda o servidor depois do primeiro byte: um connect vazio
+        # (probe de porta, health check do wrapper) não pode custar um boot.
+        try:
+            first = await asyncio.wait_for(client_r.read(65536), timeout=30)
+        except asyncio.TimeoutError:
+            return
+        if not first or not await ensure_up():
+            return
+        backend_r, backend_w = await asyncio.open_connection("127.0.0.1", PORT)
+        backend_w.write(first)
+        await backend_w.drain()
+        await asyncio.gather(pipe(client_r, backend_w), pipe(backend_r, client_w))
+    except (ConnectionResetError, BrokenPipeError, OSError):
+        pass
+    finally:
+        for w in (client_w, backend_w):
+            if w is not None:
+                try:
+                    w.close()
+                except Exception:
+                    pass
+
+
+async def main():
+    global start_lock
+    start_lock = asyncio.Lock()
+    server = await asyncio.start_server(handle, "127.0.0.1", WAKE_PORT)
+    log(f"escutando em 127.0.0.1:{WAKE_PORT} -> 127.0.0.1:{PORT}")
+    async with server:
+        await server.serve_forever()
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

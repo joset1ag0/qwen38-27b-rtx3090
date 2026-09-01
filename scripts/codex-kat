@@ -18,4 +18,9 @@ if ! up; then
     done
     echo "servidor pronto" >&2
 fi
+# O codex fala com o wake proxy (:18021), que sobe o servidor sozinho se ele
+# morrer no meio da sessão; garante que o serviço está de pé.
+if ! systemctl --user start kat-wakeproxy.service 2>/dev/null; then
+    echo "aviso: kat-wakeproxy nao instalado — rode \`make wakeproxy\` em $REPO" >&2
+fi
 KAT_API_KEY="$(grep '^VLLM_API_KEY=' "$REPO/.env" | cut -d= -f2-)" exec codex --profile kat "$@"

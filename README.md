@@ -177,6 +177,17 @@ model to load and runs `codex --profile kat`:
 ln -s "$(pwd)/scripts/codex-kat" ~/.local/bin/codex-kat
 cd ~/qualquer/projeto && codex-kat
 ```
+
+That launch-time check does not cover the server dying mid-session (it gets
+stopped to hand RAM/VRAM back to the desktop), so codex actually talks to a
+wake proxy: `make wakeproxy` installs
+[`scripts/kat-wakeproxy`](scripts/kat-wakeproxy) as a systemd user service on
+`127.0.0.1:18021` — a raw TCP splice to the server that, when a request
+arrives and `/health` is dead, runs `make kat`, waits for the model to load
+and only then forwards, instead of letting the client see connection refused.
+The codex profile's `base_url` points at 18021; any message boots the server
+by itself.
+
 Other knobs in `.env`: `KAT_CPU_MOE` (expert layers kept on CPU, default 0 —
 raise it if the card also drives a desktop and the boot OOMs; the experts are
 only 3B active, so the speed cost is modest). One GPU: `kat`, `single` and

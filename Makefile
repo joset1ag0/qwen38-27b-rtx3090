@@ -4,6 +4,7 @@
 # make codex      -> Codex CLI on the local server (kat profile must be up)
 # make single     -> Qwen3.8-27B, low latency (MTP/DFlash2 speculative decoding)
 # make batch      -> Qwen3.8-27B, throughput
+# make wakeproxy  -> install the wake proxy: requests to :18021 boot kat if down
 # make down       -> stop whatever is running
 # make logs       -> follow the running server's logs
 # One GPU: each serve target stops the other profiles first.
@@ -15,7 +16,7 @@ COMPOSE    := docker compose
 ALL_PROFILES := --profile kat --profile single --profile batch
 
 .DEFAULT_GOAL := kat
-.PHONY: kat single batch down logs status chat chat-web codex
+.PHONY: kat single batch down logs status chat chat-web codex wakeproxy
 
 kat: $(KAT_GGUF)
 	$(COMPOSE) --profile single --profile batch down
@@ -90,6 +91,16 @@ chat:
 # a patched template that folds leading system messages into one block.
 codex:
 	@KAT_API_KEY=$$(grep VLLM_API_KEY .env | cut -d= -f2) codex --profile kat
+
+# Codex talks to the wake proxy (:18021), not to the server directly: a tiny
+# always-on user service that boots kat via `make` when a request arrives and
+# the server is down (it gets stopped to give the RAM/VRAM back to the desktop).
+wakeproxy:
+	mkdir -p $(HOME)/.config/systemd/user
+	sed "s|@REPO@|$(CURDIR)|" scripts/kat-wakeproxy.service > $(HOME)/.config/systemd/user/kat-wakeproxy.service
+	systemctl --user daemon-reload
+	systemctl --user enable --now kat-wakeproxy.service
+	@echo "wake proxy up on 127.0.0.1:18021 (boots kat on first request)"
 
 # llama.cpp ships a browser UI on the same port (kat profile only; vLLM has
 # none). It asks for the API key on first use — that is the VLLM_API_KEY below.

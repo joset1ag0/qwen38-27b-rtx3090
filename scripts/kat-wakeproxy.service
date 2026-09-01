@@ -1,0 +1,12 @@
+# Template — `make wakeproxy` troca @REPO@ pelo caminho do repo e instala em
+# ~/.config/systemd/user/. Logs: journalctl --user -u kat-wakeproxy -f
+[Unit]
+Description=KAT wake proxy — sobe o servidor kat quando chega requisicao na porta 18021
+
+[Service]
+ExecStart=/usr/bin/python3 @REPO@/scripts/kat-wakeproxy
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=default.target
