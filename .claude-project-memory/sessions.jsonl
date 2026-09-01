@@ -3,3 +3,5 @@
 {"type":"start","session_id":"85ec2449-bc3f-4e0a-822e-9ddeade30ac6","started_at":"2026-08-30T19:24:09.926Z","cwd":"/home/tiago/dev_pessoal/qwen38-27b-rtx3090"}
 {"type":"start","session_id":"0a37bf83-0aa1-40da-82d7-f1f547688624","started_at":"2026-08-30T19:37:59.090Z","cwd":"/home/tiago/dev_pessoal/qwen38-27b-rtx3090"}
 {"type":"start","session_id":"c2d1b7a7-8f9b-4af8-a7cc-ba99d0aaeee3","started_at":"2026-08-30T19:43:55.335Z","cwd":"/home/tiago/dev_pessoal/qwen38-27b-rtx3090"}
+{"type":"end","session_id":"3343b7aa-6bc1-4368-9ab9-0a9f5cadf7db","ended_at":"2026-08-31T06:23:40.754Z","obs_count":160,"kind":"config","summary":"Editado: host-setup-and-env.md, settings.json. Rodou: docker compose ps; echo; echo \"--- listen\"; ss; sed -n 44,52p docs/docker.md;; set -e cd /home/tiago/dev_pessoal/qwen38-27b-rtx3090; docker compose --profile batch"}
+{"type":"start","session_id":"a5812743-e4ac-4d7d-b8ca-c0993e6ff9e1","started_at":"2026-09-01T11:28:29.663Z","cwd":"/home/tiago/dev_pessoal/qwen38-27b-rtx3090"}

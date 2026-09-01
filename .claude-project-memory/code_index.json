@@ -1,0 +1,1162 @@
+{
+  "version": 1,
+  "generated_at": "2026-08-31T06:23:40.772Z",
+  "files": {
+    "bench/act_calib.py": {
+      "lang": "python",
+      "mtime": 1788106404775.3606,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "find_model",
+          "sig": "def find_model(obj, depth=0, seen=None)",
+          "line": 27,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "make_hook",
+          "sig": "def make_hook(name, mod)",
+          "line": 58,
+          "refs": 0
+        }
+      ]
+    },
+    "bench/api_smoke.py": {
+      "lang": "python",
+      "mtime": 1788106404775.6367,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "_key",
+          "sig": "def _key(path)",
+          "line": 10,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "post",
+          "sig": "def post(url, payload, stream=False)",
+          "line": 21,
+          "refs": 6
+        },
+        {
+          "type": "fn",
+          "name": "chat",
+          "sig": "def chat(msg, **kw)",
+          "line": 30,
+          "refs": 68
+        },
+        {
+          "type": "fn",
+          "name": "check",
+          "sig": "def check(name, fn)",
+          "line": 38,
+          "refs": 25
+        },
+        {
+          "type": "fn",
+          "name": "t_greedy_det",
+          "sig": "def t_greedy_det()",
+          "line": 46,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "t_seed",
+          "sig": "def t_seed()",
+          "line": 50,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "t_logprobs",
+          "sig": "def t_logprobs()",
+          "line": 54,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "t_n2",
+          "sig": "def t_n2()",
+          "line": 58,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "t_stop",
+          "sig": "def t_stop()",
+          "line": 61,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "t_json_schema",
+          "sig": "def t_json_schema()",
+          "line": 65,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "t_min_tokens_penalty",
+          "sig": "def t_min_tokens_penalty()",
+          "line": 71,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "t_stream",
+          "sig": "def t_stream()",
+          "line": 74,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "t_thinking",
+          "sig": "def t_thinking()",
+          "line": 79,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "t_completions_echo_logprobs",
+          "sig": "def t_completions_echo_logprobs()",
+          "line": 83,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "t_long_ctx_greedy",
+          "sig": "def t_long_ctx_greedy()",
+          "line": 88,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "t_thinking_budget_rejected",
+          "sig": "def t_thinking_budget_rejected()",
+          "line": 93,
+          "refs": 0
+        }
+      ]
+    },
+    "bench/bugb_sweep.py": {
+      "lang": "python",
+      "mtime": 1788106404775.6367,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "_key",
+          "sig": "def _key(path)",
+          "line": 27,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "metrics",
+          "sig": "def metrics()",
+          "line": 42,
+          "refs": 7
+        }
+      ]
+    },
+    "bench/conc_ladder.py": {
+      "lang": "python",
+      "mtime": 1788106404775.6367,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "_key",
+          "sig": "def _key(path)",
+          "line": 57,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "_arg",
+          "sig": "def _arg(flag, default, cast=int)",
+          "line": 64,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "make_prompt",
+          "sig": "def make_prompt(i, salt)",
+          "line": 90,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "_short",
+          "sig": "def _short(name)",
+          "line": 110,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "metrics",
+          "sig": "def metrics()",
+          "line": 114,
+          "refs": 7
+        },
+        {
+          "type": "fn",
+          "name": "stream",
+          "sig": "def stream(i, salt, res, first_tok)",
+          "line": 124,
+          "refs": 38
+        },
+        {
+          "type": "fn",
+          "name": "sampler",
+          "sig": "def sampler(stop, peak)",
+          "line": 159,
+          "refs": 32
+        },
+        {
+          "type": "fn",
+          "name": "run_one",
+          "sig": "def run_one(n, salt)",
+          "line": 172,
+          "refs": 0
+        }
+      ]
+    },
+    "bench/demo_capture.py": {
+      "lang": "python",
+      "mtime": 1788106404775.6367,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "run",
+          "sig": "def run(key, label, content, max_tokens=None)",
+          "line": 54,
+          "refs": 154
+        }
+      ]
+    },
+    "bench/demo_render.py": {
+      "lang": "python",
+      "mtime": 1788106404775.6367,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "font",
+          "sig": "def font(path, sz, index=0)",
+          "line": 46,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "prepare",
+          "sig": "def prepare(p)",
+          "line": 79,
+          "refs": 117
+        },
+        {
+          "type": "fn",
+          "name": "visible",
+          "sig": "def visible(p, t_ms)",
+          "line": 98,
+          "refs": 2
+        },
+        {
+          "type": "fn",
+          "name": "rate_at",
+          "sig": "def rate_at(p, i, t_ms, window=800.0)",
+          "line": 112,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "wrap",
+          "sig": "def wrap(text, cols)",
+          "line": 129,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "rrect",
+          "sig": "def rrect(d, box, r, **kw)",
+          "line": 142,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "meter",
+          "sig": "def meter(d, x, y, w, h, value, vmax, color, track=EDGE)",
+          "line": 146,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "dots",
+          "sig": "def dots(d, cx, y, n, idx, active, inactive)",
+          "line": 159,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "stamp",
+          "sig": "def stamp(d)",
+          "line": 169,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "panel",
+          "sig": "def panel(d, x, lane, prompt, t_ms, cols, top, bottom)",
+          "line": 174,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "header",
+          "sig": "def header(d, idx, n_prompts, pa)",
+          "line": 218,
+          "refs": 7
+        },
+        {
+          "type": "fn",
+          "name": "title_card",
+          "sig": "def title_card(d, idx, n_prompts, pa)",
+          "line": 239,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "arrow",
+          "sig": "def arrow(d, x, y, w, color)",
+          "line": 253,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "final_card",
+          "sig": "def final_card(d, results, hero, top)",
+          "line": 260,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "main",
+          "sig": "def main()",
+          "line": 317,
+          "refs": 38
+        }
+      ]
+    },
+    "bench/labd_accept.py": {
+      "lang": "python",
+      "mtime": 1788106404775.6367,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "arg",
+          "sig": "def arg(name, default)",
+          "line": 97,
+          "refs": 4
+        },
+        {
+          "type": "fn",
+          "name": "flag",
+          "sig": "def flag(name)",
+          "line": 101,
+          "refs": 45
+        },
+        {
+          "type": "fn",
+          "name": "post",
+          "sig": "def post(path, payload, stream=False, timeout=1800)",
+          "line": 119,
+          "refs": 6
+        },
+        {
+          "type": "fn",
+          "name": "metrics",
+          "sig": "def metrics()",
+          "line": 127,
+          "refs": 7
+        },
+        {
+          "type": "fn",
+          "name": "tokenize_chat",
+          "sig": "def tokenize_chat(content)",
+          "line": 148,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "ids_from_logprobs",
+          "sig": "def ids_from_logprobs(tokens)",
+          "line": 156,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "generate",
+          "sig": "def generate(prompt_ids, max_tokens)",
+          "line": 166,
+          "refs": 4
+        }
+      ]
+    },
+    "bench/labd_bench.py": {
+      "lang": "python",
+      "mtime": 1788106404775.6367,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "arg",
+          "sig": "def arg(name, default)",
+          "line": 33,
+          "refs": 4
+        },
+        {
+          "type": "fn",
+          "name": "metrics",
+          "sig": "def metrics()",
+          "line": 42,
+          "refs": 7
+        }
+      ]
+    },
+    "bench/labd_soak.py": {
+      "lang": "python",
+      "mtime": 1788106404775.6367,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "arg",
+          "sig": "def arg(name, default)",
+          "line": 51,
+          "refs": 4
+        },
+        {
+          "type": "fn",
+          "name": "metrics",
+          "sig": "def metrics()",
+          "line": 70,
+          "refs": 7
+        },
+        {
+          "type": "fn",
+          "name": "ask",
+          "sig": "def ask(task)",
+          "line": 82,
+          "refs": 0
+        }
+      ]
+    },
+    "bench/make_long_corpus.py": {
+      "lang": "python",
+      "mtime": 1788106404775.6367,
+      "symbols": []
+    },
+    "bench/quality_battery.py": {
+      "lang": "python",
+      "mtime": 1788106404775.6367,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "_key",
+          "sig": "def _key(path)",
+          "line": 21,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "post",
+          "sig": "def post(path, payload, timeout=1200)",
+          "line": 34,
+          "refs": 6
+        },
+        {
+          "type": "fn",
+          "name": "docs",
+          "sig": "def docs()",
+          "line": 39,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "ppl_one",
+          "sig": "def ppl_one(item)",
+          "line": 59,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "run_ppl",
+          "sig": "def run_ppl()",
+          "line": 72,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "extract_num",
+          "sig": "def extract_num(s)",
+          "line": 83,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "gsm_one",
+          "sig": "def gsm_one(row)",
+          "line": 87,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "run_gsm",
+          "sig": "def run_gsm()",
+          "line": 99,
+          "refs": 0
+        }
+      ]
+    },
+    "bench/residue_sweep.py": {
+      "lang": "python",
+      "mtime": 1788106404775.6367,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "_key",
+          "sig": "def _key(path)",
+          "line": 32,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "metrics",
+          "sig": "def metrics()",
+          "line": 46,
+          "refs": 7
+        },
+        {
+          "type": "fn",
+          "name": "once",
+          "sig": "def once(content)",
+          "line": 54,
+          "refs": 0
+        }
+      ]
+    },
+    "bench/seat_ttft.py": {
+      "lang": "python",
+      "mtime": 1788106404775.6367,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "_key",
+          "sig": "def _key()",
+          "line": 25,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "prompt",
+          "sig": "def prompt(salt)",
+          "line": 44,
+          "refs": 155
+        },
+        {
+          "type": "fn",
+          "name": "ttft",
+          "sig": "def ttft(salt)",
+          "line": 49,
+          "refs": 13
+        }
+      ]
+    },
+    "bench/spec_attn_ctx_scan.py": {
+      "lang": "python",
+      "mtime": 1788106404775.6367,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "make",
+          "sig": "def make(kv_len, q_len)",
+          "line": 39,
+          "refs": 73
+        },
+        {
+          "type": "fn",
+          "name": "bench",
+          "sig": "def bench(fn, iters=30)",
+          "line": 51,
+          "refs": 133
+        },
+        {
+          "type": "fn",
+          "name": "tua_call",
+          "sig": "def tua_call(q, kc, vc, out, cu, seqused, bt, q_len, kv_len, segm=None)",
+          "line": 65,
+          "refs": 0
+        }
+      ]
+    },
+    "bench/test_lookup_kernels.py": {
+      "lang": "python",
+      "mtime": 1788106404775.6367,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "ref_lookup",
+          "sig": "def ref_lookup(seq, k, nmin, nmax)",
+          "line": 16,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "run_case",
+          "sig": "def run_case(seq, k, nmin, nmax, device=\"cuda\")",
+          "line": 34,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "main",
+          "sig": "def main()",
+          "line": 48,
+          "refs": 38
+        }
+      ]
+    },
+    "bench/test_spec_decode_attn.py": {
+      "lang": "python",
+      "mtime": 1788106404775.6367,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "make",
+          "sig": "def make(kv_lens, q_len, num_blocks=None)",
+          "line": 17,
+          "refs": 73
+        },
+        {
+          "type": "fn",
+          "name": "ref",
+          "sig": "def ref(q, kc, vc, bt, kv_lens, q_len)",
+          "line": 34,
+          "refs": 29
+        },
+        {
+          "type": "fn",
+          "name": "bench",
+          "sig": "def bench(fn, iters=200)",
+          "line": 52,
+          "refs": 133
+        }
+      ]
+    },
+    "bench/tune_gdn.py": {
+      "lang": "python",
+      "mtime": 1788106404775.6367,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "bench",
+          "sig": "def bench(N, BV, num_warps)",
+          "line": 11,
+          "refs": 133
+        }
+      ]
+    },
+    "bench/verbatim.py": {
+      "lang": "python",
+      "mtime": 1788106404775.6367,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "coverage",
+          "sig": "def coverage(ans, doc)",
+          "line": 40,
+          "refs": 10
+        },
+        {
+          "type": "fn",
+          "name": "prefix_match",
+          "sig": "def prefix_match(ans, doc)",
+          "line": 49,
+          "refs": 4
+        },
+        {
+          "type": "fn",
+          "name": "repeats",
+          "sig": "def repeats(ans)",
+          "line": 57,
+          "refs": 16
+        },
+        {
+          "type": "fn",
+          "name": "invented_repeats",
+          "sig": "def invented_repeats(ans, doc)",
+          "line": 63,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "classify",
+          "sig": "def classify(ans, doc, ref=None, min_len=40, floor=0.5, rel=0.6, max_l...)",
+          "line": 74,
+          "refs": 7
+        },
+        {
+          "type": "fn",
+          "name": "median",
+          "sig": "def median(xs)",
+          "line": 95,
+          "refs": 21
+        },
+        {
+          "type": "fn",
+          "name": "_selftest",
+          "sig": "def _selftest()",
+          "line": 100,
+          "refs": 0
+        }
+      ]
+    },
+    "drafter/capture.py": {
+      "lang": "python",
+      "mtime": 1788106404799.3755,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "main",
+          "sig": "def main()",
+          "line": 29,
+          "refs": 38
+        }
+      ]
+    },
+    "drafter/capture_dflash2.py": {
+      "lang": "python",
+      "mtime": 1788106404799.3755,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "find_draft_model",
+          "sig": "def find_draft_model(root)",
+          "line": 37,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "main",
+          "sig": "def main()",
+          "line": 59,
+          "refs": 38
+        },
+        {
+          "type": "fn",
+          "name": "reduce_wide",
+          "sig": "def reduce_wide()",
+          "line": 166,
+          "refs": 0
+        }
+      ]
+    },
+    "drafter/collect_prompts.py": {
+      "lang": "python",
+      "mtime": 1788106404799.3755,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "dl",
+          "sig": "def dl(repo, patterns)",
+          "line": 13,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "parquet_rows",
+          "sig": "def parquet_rows(root, cols=None)",
+          "line": 18,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "add",
+          "sig": "def add(src, msgs)",
+          "line": 31,
+          "refs": 25
+        }
+      ]
+    },
+    "drafter/export_mtp.py": {
+      "lang": "python",
+      "mtime": 1788106404799.3755,
+      "symbols": []
+    },
+    "drafter/gen_data.py": {
+      "lang": "python",
+      "mtime": 1788106404799.3755,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "main",
+          "sig": "def main()",
+          "line": 21,
+          "refs": 38
+        }
+      ]
+    },
+    "drafter/gptq_lm_head.py": {
+      "lang": "python",
+      "mtime": 1788106404799.3755,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "kl_eval",
+          "sig": "def kl_eval(Wq)",
+          "line": 44,
+          "refs": 0
+        }
+      ]
+    },
+    "drafter/gptq_utils.py": {
+      "lang": "python",
+      "mtime": 1788106404799.3755,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "accumulate_hessian",
+          "sig": "def accumulate_hessian(H, X, n_seen)",
+          "line": 9,
+          "refs": 8
+        },
+        {
+          "type": "fn",
+          "name": "gptq_quantize",
+          "sig": "def gptq_quantize(W, H, bits=4, group=128, blocksize=128, percdamp=0.01, ms...)",
+          "line": 21,
+          "refs": 8
+        },
+        {
+          "type": "fn",
+          "name": "rtn_quantize",
+          "sig": "def rtn_quantize(W, bits=4, group=128)",
+          "line": 77,
+          "refs": 4
+        },
+        {
+          "type": "fn",
+          "name": "dequant",
+          "sig": "def dequant(q, scale, group=128)",
+          "line": 87,
+          "refs": 33
+        }
+      ]
+    },
+    "drafter/quant_dflash2.py": {
+      "lang": "python",
+      "mtime": 1788106404799.3755,
+      "symbols": []
+    },
+    "drafter/requant_mtp_gptq.py": {
+      "lang": "python",
+      "mtime": 1788106404799.3755,
+      "symbols": []
+    },
+    "drafter/train_mtp.py": {
+      "lang": "python",
+      "mtime": 1788106404799.3755,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "log",
+          "sig": "def log(*a)",
+          "line": 63,
+          "refs": 65
+        },
+        {
+          "type": "fn",
+          "name": "_causal_attn_lse",
+          "sig": "def _causal_attn_lse(q, k, v, scale)",
+          "line": 80,
+          "refs": 0
+        },
+        {
+          "type": "class",
+          "name": "MTP",
+          "sig": "class MTP(nn.Module)",
+          "line": 87,
+          "refs": 152
+        },
+        {
+          "type": "fn",
+          "name": "load_seq",
+          "sig": "def load_seq(s)",
+          "line": 246,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "make_batch",
+          "sig": "def make_batch(seq_list)",
+          "line": 253,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "pack",
+          "sig": "def pack(seq_list, budget)",
+          "line": 266,
+          "refs": 29
+        },
+        {
+          "type": "fn",
+          "name": "head_loss",
+          "sig": "def head_loss(z, h_tgt, train, weight, x_true=None)",
+          "line": 281,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "run_batch",
+          "sig": "def run_batch(seq_list, train)",
+          "line": 325,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "evaluate",
+          "sig": "def evaluate()",
+          "line": 372,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "lr_at",
+          "sig": "def lr_at(step)",
+          "line": 434,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "save",
+          "sig": "def save()",
+          "line": 441,
+          "refs": 10
+        }
+      ]
+    },
+    "kvarn/files/vllm/model_executor/layers/quantization/kvarn/__init__.py": {
+      "lang": "python",
+      "mtime": 1788106404800.0154,
+      "symbols": []
+    },
+    "kvarn/files/vllm/model_executor/layers/quantization/kvarn/config.py": {
+      "lang": "python",
+      "mtime": 1788106404800.0996,
+      "symbols": [
+        {
+          "type": "class",
+          "name": "KVarNConfig",
+          "sig": "class KVarNConfig",
+          "line": 30,
+          "refs": 23
+        }
+      ]
+    },
+    "kvarn/files/vllm/model_executor/layers/quantization/kvarn/sinkhorn.py": {
+      "lang": "python",
+      "mtime": 1788106404800.0996,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "_imbalance",
+          "sig": "def _imbalance(tile: torch.Tensor) -> torch.Tensor",
+          "line": 40,
+          "refs": 0
+        }
+      ]
+    },
+    "kvarn/files/vllm/v1/attention/backends/kvarn_attn.py": {
+      "lang": "python",
+      "mtime": 1788106404800.258,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "_hadamard_cached",
+          "sig": "def _hadamard_cached(d: int, device_str: str) -> torch.Tensor",
+          "line": 89,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "_build_hadamard",
+          "sig": "def _build_hadamard(d: int, device: torch.device) -> torch.Tensor",
+          "line": 97,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "_sinkhorn_pack_kv",
+          "sig": "def _sinkhorn_pack_kv(K_tiles, V_tiles, cfg)",
+          "line": 101,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "_active_kvarn_cache_dtype",
+          "sig": "def _active_kvarn_cache_dtype() -> str | None",
+          "line": 130,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "_active_kvarn_group",
+          "sig": "def _active_kvarn_group() -> int | None",
+          "line": 160,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "_causal_bool",
+          "sig": "def _causal_bool(c: Any) -> bool",
+          "line": 170,
+          "refs": 0
+        },
+        {
+          "type": "class",
+          "name": "KVarNAttentionBackend",
+          "sig": "class KVarNAttentionBackend(AttentionBackend)",
+          "line": 184,
+          "refs": 2
+        },
+        {
+          "type": "class",
+          "name": "KVarNMetadata",
+          "sig": "class KVarNMetadata(AttentionMetadata)",
+          "line": 353,
+          "refs": 1
+        },
+        {
+          "type": "class",
+          "name": "KVarNMetadataBuilder",
+          "sig": "class KVarNMetadataBuilder(AttentionMetadataBuilder[KVarNMetadata])",
+          "line": 399,
+          "refs": 2
+        },
+        {
+          "type": "class",
+          "name": "_BlockTail",
+          "sig": "class _BlockTail",
+          "line": 1037,
+          "refs": 0
+        },
+        {
+          "type": "class",
+          "name": "KVarNAttentionImpl",
+          "sig": "class KVarNAttentionImpl(AttentionImpl[\"KVarNMetadata\"])",
+          "line": 1056,
+          "refs": 2
+        }
+      ]
+    },
+    "kvarn/files/vllm/v1/attention/ops/kvarn_decode.py": {
+      "lang": "python",
+      "mtime": 1788106404800.258,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "_unpack_4bit",
+          "sig": "def _unpack_4bit(packed: torch.Tensor, original_last_dim: int) -> torch.Tensor",
+          "line": 18,
+          "refs": 0
+        }
+      ]
+    },
+    "kvarn/files/vllm/v1/attention/ops/kvarn_store.py": {
+      "lang": "python",
+      "mtime": 1788106404800.7285,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "_rtn_range",
+          "sig": "def _rtn_range(t: torch.Tensor, dim: int)",
+          "line": 29,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "_pack_4bit",
+          "sig": "def _pack_4bit(q: torch.Tensor) -> torch.Tensor",
+          "line": 73,
+          "refs": 0
+        },
+        {
+          "type": "fn",
+          "name": "_pack_lowbit",
+          "sig": "def _pack_lowbit(q: torch.Tensor, bits: int) -> torch.Tensor",
+          "line": 85,
+          "refs": 0
+        }
+      ]
+    },
+    "kvarn/files/vllm/v1/attention/ops/triton_kvarn_decode.py": {
+      "lang": "python",
+      "mtime": 1788106404800.7285,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "adaptive_num_kv_splits",
+          "sig": "def adaptive_num_kv_splits(max_blocks_per_req: int) -> int",
+          "line": 60,
+          "refs": 4
+        }
+      ]
+    },
+    "kvarn/files/vllm/v1/attention/ops/triton_kvarn_sinkhorn.py": {
+      "lang": "python",
+      "mtime": 1788106404800.7285,
+      "symbols": []
+    },
+    "patches/_check_applied.py": {
+      "lang": "python",
+      "mtime": 1788106404800.7285,
+      "symbols": []
+    },
+    "prepare/build_draft_vocab.py": {
+      "lang": "python",
+      "mtime": 1788106404802.3647,
+      "symbols": [
+        {
+          "type": "fn",
+          "name": "texts_from",
+          "sig": "def texts_from(path, limit_bytes=20_000_000)",
+          "line": 38,
+          "refs": 0
+        }
+      ]
+    },
+    "prepare/fetch_dflash2.py": {
+      "lang": "python",
+      "mtime": 1788106404802.3647,
+      "symbols": []
+    },
+    "prepare/fetch_fast_variant.py": {
+      "lang": "python",
+      "mtime": 1788106404802.3647,
+      "symbols": []
+    },
+    "prepare/quant_embed.py": {
+      "lang": "python",
+      "mtime": 1788106404802.3647,
+      "symbols": []
+    },
+    "prepare/quant_lm_head.py": {
+      "lang": "python",
+      "mtime": 1788106404802.3647,
+      "symbols": []
+    },
+    "prepare/quant_mtp.py": {
+      "lang": "python",
+      "mtime": 1788106404802.3647,
+      "symbols": []
+    }
+  }
+}

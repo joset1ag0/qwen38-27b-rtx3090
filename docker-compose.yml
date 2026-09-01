@@ -94,6 +94,7 @@ services:
       - "${BIND:-127.0.0.1}:${PORT:-18020}:${PORT:-18020}"
     volumes:
       - ${MODELS_DIR:-./models}/gguf:/models:ro
+      - ./templates:/templates:ro
     environment:
       LLAMA_API_KEY: ${VLLM_API_KEY:-}
     command: >
@@ -101,9 +102,12 @@ services:
       --host 0.0.0.0 --port ${PORT:-18020}
       --alias kat-coder-v2.5
       -ngl 999 -c ${KAT_CTX:-16384}
-      --cache-type-k q8_0 --cache-type-v q8_0
+      --cache-type-k ${KAT_KV:-q8_0} --cache-type-v ${KAT_KV:-q8_0}
       --n-cpu-moe ${KAT_CPU_MOE:-0}
+      --parallel ${KAT_SLOTS:-1}
+      ${KAT_ROPE_ARGS:-}
       --jinja
+      --chat-template-file /templates/kat.jinja
     deploy:
       resources:
         reservations:

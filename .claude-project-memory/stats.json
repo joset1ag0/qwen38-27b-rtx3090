@@ -1,13 +1,14 @@
 {
-  "sessions": 0,
-  "observations": 124,
-  "last_injection_tokens": 2380,
+  "sessions": 1,
+  "observations": 193,
+  "last_injection_tokens": 2639,
   "last_injection_budget": 4000,
-  "last_injection_at": "2026-08-30T19:43:55.347Z",
+  "last_injection_at": "2026-09-01T11:28:29.683Z",
   "last_injection_blocks": [
-    "git:147",
-    "corrections:65",
-    "observations:2168"
+    "git:260",
+    "sessions:76",
+    "corrections:167",
+    "observations:2136"
   ],
   "last_injection_skipped": []
 }

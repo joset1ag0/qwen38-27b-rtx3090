@@ -1,4 +1,7 @@
 # make            -> serve KAT-Coder-V2.5-Dev IQ4_XS via llama.cpp (default)
+# make chat       -> talk to whatever is running, in the terminal
+# make chat-web   -> the same, in llama.cpp's built-in browser UI (kat only)
+# make codex      -> Codex CLI on the local server (kat profile must be up)
 # make single     -> Qwen3.8-27B, low latency (MTP/DFlash2 speculative decoding)
 # make batch      -> Qwen3.8-27B, throughput
 # make down       -> stop whatever is running
@@ -12,7 +15,7 @@ COMPOSE    := docker compose
 ALL_PROFILES := --profile kat --profile single --profile batch
 
 .DEFAULT_GOAL := kat
-.PHONY: kat single batch down logs status
+.PHONY: kat single batch down logs status chat chat-web codex
 
 kat: $(KAT_GGUF)
 	$(COMPOSE) --profile single --profile batch down
@@ -67,3 +70,27 @@ logs:
 
 status:
 	$(COMPOSE) $(ALL_PROFILES) ps
+
+# Talk to whichever server is up — the script reads PORT and VLLM_API_KEY from
+# .env and asks /v1/models for the name, so it works against kat, single and
+# batch alike.
+chat:
+	@python3 scripts/chat.py
+
+# Codex CLI against the local server, via the `kat` profile in
+# ~/.codex/kat.config.toml (codex >= 0.151 keeps each profile in its own
+# file, and only speaks wire_api = "responses" — fine, llama.cpp serves
+# /v1/responses). The API key travels through the env var named in the
+# provider's env_key. Codex always sends a `developer` message, which the
+# stock KAT chat template rejects ("System message must be at the beginning");
+# the kat service therefore runs with --chat-template-file templates/kat.jinja,
+# a patched template that folds leading system messages into one block.
+codex:
+	@KAT_API_KEY=$$(grep VLLM_API_KEY .env | cut -d= -f2) codex --profile kat
+
+# llama.cpp ships a browser UI on the same port (kat profile only; vLLM has
+# none). It asks for the API key on first use — that is the VLLM_API_KEY below.
+chat-web:
+	@echo "API key: $$(grep VLLM_API_KEY .env | cut -d= -f2)"
+	@xdg-open http://127.0.0.1:$${PORT:-18020} >/dev/null 2>&1 \
+	  || echo "open http://127.0.0.1:$${PORT:-18020} in your browser"

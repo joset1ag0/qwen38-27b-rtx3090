@@ -124,6 +124,37 @@ curl -H "Authorization: Bearer $(grep VLLM_API_KEY .env | cut -d= -f2)" \
 
 **OpenAI-compatible API only** — llama.cpp has no Anthropic `/v1/messages`, so
 Claude Code does not run against this profile; use `make single` for that.
+Codex CLI, on the other hand, runs against it directly: `make codex`. Codex
+≥ 0.151 dropped chat/completions for custom providers and only speaks the
+Responses API — llama.cpp serves `/v1/responses`, so no proxy is needed. Two
+pieces make it work:
+
+- A codex profile in `~/.codex/kat.config.toml` (codex keeps each profile in
+  its own file); `make codex` exports the key from `.env` and runs
+  `codex --profile kat`:
+
+  ```toml
+  model = "kat-coder-v2.5"
+  model_provider = "kat"
+
+  [model_providers.kat]
+  name = "KAT-Coder (llama.cpp local)"
+  base_url = "http://127.0.0.1:18020/v1"
+  env_key = "KAT_API_KEY"
+  wire_api = "responses"
+
+  # without these codex falls back to generic model metadata
+  model_context_window = 360448
+  model_max_output_tokens = 32768
+  ```
+
+- [`templates/kat.jinja`](templates/kat.jinja): codex always sends a
+  `developer` message after the system prompt, and KAT's stock chat template
+  raises `System message must be at the beginning` on it (llama.cpp maps
+  `developer` to `system`). The `kat` service therefore runs with
+  `--chat-template-file` pointing at this patched copy of the model's own
+  template, which folds the leading run of system messages into one system
+  block — tool-call format and everything else unchanged.
 Other knobs in `.env`: `KAT_CPU_MOE` (expert layers kept on CPU, default 0 —
 raise it if the card also drives a desktop and the boot OOMs; the experts are
 only 3B active, so the speed cost is modest). One GPU: `kat`, `single` and
