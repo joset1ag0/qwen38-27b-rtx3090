@@ -155,6 +155,16 @@ pieces make it work:
   `--chat-template-file` pointing at this patched copy of the model's own
   template, which folds the leading run of system messages into one system
   block — tool-call format and everything else unchanged.
+
+To use it from any directory in any project, symlink
+[`scripts/codex-kat`](scripts/codex-kat) into your `PATH` — it resolves the
+key from this repo's `.env`, checks the server is up (codex's own failure
+mode is a misleading "high demand" error) and runs `codex --profile kat`:
+
+```bash
+ln -s "$(pwd)/scripts/codex-kat" ~/.local/bin/codex-kat
+cd ~/qualquer/projeto && codex-kat
+```
 Other knobs in `.env`: `KAT_CPU_MOE` (expert layers kept on CPU, default 0 —
 raise it if the card also drives a desktop and the boot OOMs; the experts are
 only 3B active, so the speed cost is modest). One GPU: `kat`, `single` and
